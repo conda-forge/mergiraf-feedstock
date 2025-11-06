@@ -1,6 +1,6 @@
 context:
   name: mergiraf
-  version: "0.15.0"
+  version: "0.16.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://codeberg.org/mergiraf/mergiraf/archive/v${{ version }}.tar.gz
-  sha256: 75f553935df38dd84679727fe3b3232d54ed4a9fe6ca214e3fd54ac714d0fae3
+  sha256: fa46969f6215c9ab7078a3dec90d7b5976cf753f5f03f0f9a57b0f4e9ef541fa
 
 build:
-  number: 1
+  number: 0
   script:
     env:
       CARGO_PROFILE_RELEASE_STRIP: symbols
@@ -20,7 +20,7 @@ build:
       - if: unix
         then:
           # Needed to get tree-sitter to compile
-        - export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
+          - export CFLAGS="${CFLAGS} -D_BSD_SOURCE"
       - cargo auditable install --locked --no-track --bins --root ${{ PREFIX }} --path .
       - cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
 
