@@ -1,6 +1,6 @@
 context:
   name: mergiraf
-  version: "0.17.0"
+  version: "0.18.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://codeberg.org/mergiraf/mergiraf/archive/v${{ version }}.tar.gz
-  sha256: 88f8fa352835a8c1d5eded304993fdfba7bc515c2e71f8331f1e43c9454cd62c
+  sha256: 28b5187a1cd201c96aee6732dda9084406ad3001ed93fcff4e9fc3b740dbe471
 
 build:
   number: 0
